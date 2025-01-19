@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: sticky;
+      top: 0px;
+      z-index: 10000;
+      align-items: center;
+      background: rgb(180, 58, 58);
+      background: linear-gradient(90deg, rgb(83, 32, 117) 0%, rgba(83, 20, 57, 0.975) 50%, rgb(46, 70, 105) 100%);
+    }
+   
+    .navbar .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar .nav-links a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 12px;
+     
+    }
+
+    .navbar .nav-links a:hover {
+      background-color: #575757;
+      border-radius: 4px;
+    }
+    .navbar>h1{
+    text-align: center;
+    background: linear-gradient(90deg, #05c575 0%, #9cbb2c 40%, #5ec509 100%);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* text-fill-color: transparent; */
+    font-weight: bold;
+    /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-size: 30px; 
+    margin-left: 200px;    
+ }
+  #main{
+    width: 100%;
+    height: 500px;
+    /* border: 1px solid black; */
+    background-image: url("https://png.pngtree.com/background/20230618/original/pngtree-korean-e-commerce-in-high-quality-3d-renderings-for-social-media-picture-image_3754412.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 5px;
+
+  }
+  .content {
+    z-index: 2; /* Ensures text appears above the overlay */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: rgb(175, 51, 13);
+  }
+  .content>h1{
+    text-align: center;
+    background: linear-gradient(90deg, #05c565 0%, #4ee628 40%, #09f02f 100%);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* text-fill-color: transparent; */
+    font-weight: bold;
+    /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-size: 40px; 
+    margin-left: 180px;  
+   
+  }
+  .ptag{
+    width: 200px;
+    height: 150px;
+    background-color: #fff;
+    padding: 10px;
+    text-align:left;
+    border-radius: 15px 0px 15px 15px;
+    font-weight: bold;
+    position: absolute;
+    right: 10%;
+    background: linear-gradient(90deg, #05afc5 0%, #65b351 40%, #465503 100%);
+
+
+  }
+  .ptag>p>span{
+    
+    color: rgb(66, 8, 8);
+  }
+  #discount{
+    width: 90%;
+    height: 400px;
+    background-color: #d9e6e7;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 20px;
+  }
+  #discount{
+    display: grid;
+    grid-template-columns: repeat(2,45%);
+    grid-template-rows: 100%;
+    justify-content: space-around;
+    box-sizing: border-box;
+
+  }
+  #discount>div{
+      /* background-color: #fff; */
+    box-sizing: border-box;
+   
+  }
+  #discount>div:first-child>div{
+    width: 80%;
+    margin-top: -50px;
+    /* background-color: #9c0909; */
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+    
+
+    
+    
+  }
+  #discount>div:first-child>div div{
+    display: flex;
+    padding: 15px;
+    /* border-right: 1px solid black; */
+    gap: 5px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  #discount h1{
+    font-size: 45px;
+    padding: 40px;
+  }
+  #discount a{
+    padding: 50px ;
+    
+  }
+  #discount a>button{
+    padding: 20px;
+    border: none;
+    background-color: #8a2681;
+    border-radius: 10px;
+  }
+  img[alt="stu"]{
+    width: 100%;
+    height: 100%;
+  }
+  .styled-heading {
+    width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      font-weight: bold;
+      color: #333; 
+      margin: auto; 
+      margin-top: 50px;
+    }
+
+    .styled-heading::before,
+    .styled-heading::after {
+      content: ''; 
+      flex: 1; 
+      height: 2px; 
+      background-color: #888; /* Line color */
+    }
+
+    .styled-heading::before {
+      margin-right: 10px;
+    }
+
+    .styled-heading::after {
+      margin-left: 10px; 
+    }
+    #fashion{
+      width: 90%;
+      height: 400px;
+      background-color: #d9e6e7;
+      margin: auto;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      margin-top: 50px;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-around;
+      background-image: url("https://img.freepik.com/premium-photo/extravagant-black-gold-abstract-geometric-wallpaper_975188-16545.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    #fashion>div:nth-child(1){
+       width: 40%;
+       height: 90%;
+       background-color: rgb(243, 240, 243);
+       margin-top: 30px;
+       display: grid;
+       grid-template-columns: repeat(2,2fr);
+       grid-template-rows: 50% 50%;
+       box-sizing: border-box;
+       gap: 5px;
+      
+
+    }
+   
+    #fashion>div:nth-child(2){
+       width: 50%;
+       height: 100%;
+       /* background-color: white; */
+       box-sizing: border-box;
+       
+       
+    }
+    .child{
+      width: 100%;
+       height: 60%;
+       background-color: rgb(241, 237, 237);
+       margin-top: 50px;
+       display: grid;
+       grid-template-columns: repeat(4,1fr);
+       grid-template-rows: 100%;
+       gap: 5px;
+    }
+    
+    #fashion>div:nth-child(2)>h1{
+      text-align: center;
+      background: linear-gradient(90deg, #06c920 0%, #f31818 40%, #c5097d 100%);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 50px; 
+     
+     
+    }
+    #fashion>div:nth-child(1) div{
+     
+      /* border: 1px solid green; */
+      box-sizing: border-box;
+    }
+    #fashion img{
+      width: 100%;
+      height: 70%;
+    }
+    #fashion p{
+      text-align: center;
+      font-weight: bold;
+    }
+    .items{
+      width: 90%;
+      height: 400px;
+      background-color: #c5f5f5;
+      margin: auto;
+      margin-top: 50px;
+      background-image: url("https://burst.shopifycdn.com/photos/fog-on-dark-waters-edge.jpg?width=1000&format=pjpg&exif=0&iptc=0");
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      
+    }
+    .items>div:nth-child(1){
+      width: 20%;
+      height: 80%;
+      /* border: 2px solid red; */
+      position: absolute;
+      top: 80px;
+      left: 80px;
+     text-align: center;
+ 
+    }
+    .items>div:nth-child(1)>h1{
+       padding: 15px 10px;
+       font-size: 40px;
+    }
+   h1+button{
+      background-color: #e428bb;
+      font-size: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+    }
+    .item-child{
+      width: 50%;
+      height: 90%;
+      position: absolute;
+      right: 90px;
+      top: 20px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: 100%;
+      /* background-color: #f0f3f3; */
+      gap: 10px;
+      text-align: center;
+
+    }
+    .item-child>div{
+      padding: 20px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;    }
+    .lightBlue{
+      width: 100%;
+      height: 90%;
+      background-color: #0bad3c;
+      
+    }
+    .lightBlue div{
+      width: 100%;
+      height: 50%;
+      border-radius: 10px;
+      
+      background-color: #f4f8f8;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+    }
+    .lightBlue>div img{
+      width: 100%;
+      height: 90%;
+    }
+    .item-child button{
+      padding:10px;
+      background-color: #a415dd;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    button:hover{
+      cursor: pointer;
+    }
+    .items h1{
+      background: linear-gradient(90deg, #06c920 0%, #264608 40%, #54c509 100%);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+    #item2{
+      background-image: url("https://www.shutterstock.com/image-vector/bluegreen-gradient-studio-room-abstract-260nw-2491716123.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    #item2 h1{
+      background: linear-gradient(90deg, #c96406 0%, #f1f518 40%, #f01b1b 100%);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+    a[href="#profile"]>i{
+        font-size: 20px;
+        padding-right: 15px;
+    }
+    .blog{
+      width: 90%;
+      height: 400px;
+      border: 1px solid black;
+      margin: auto;
+      margin-top: 50px;
+      background-image: url("https://c4.wallpaperflare.com/wallpaper/391/726/482/pc-girl-1920x1080-wallpaper-preview.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .blog>div:nth-child(1){
+      width: 25%;
+      height: 150px;
+      background-color: #05afc5;
+      padding:0px 15px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 40px;
+      left: 20px;
+      border-radius: 30px 0px 30px 30px;
+      text-align: center;
+      color: #a319b6;
+    }
+    .blog>div:nth-child(2){
+        width: 12%;
+        height: 50px;
+        background-color: #a0c95f;
+        position: absolute;
+        text-align: center;
+        right: 20px;
+        top: 50px;
+        box-sizing: border-box;
+        border-radius: 20%;
+    }
+    .footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #101741; 
+    color: #fff;  
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin-top: 80px;
+    flex-wrap: wrap;  
+    border-top: 2px solid #f2a154;
+}
+
+.footer div {
+    flex: 1;
+    margin: 0 10px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.footer div:hover {
+    transform: translateY(-5px);  
+}
+
+.footer h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #f2a154;
+    position: relative;
+}
+
+.footer h4::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #f2a154;
+    margin-top: 5px;
+    transition: width 0.3s ease;
+}
+
+.footer h4:hover::after {
+    width: 80px;  
+}
+
+.footer a {
+    display: block;
+    color: #ddd;  
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer a:hover {
+    color: #f2a154;  
+    transform: scale(1.1);  
+}
+
+.footer-line {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center; 
+    gap: 15px;  
+    background-color: #080c30;  
+    color: #ddd;
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 100%;  
+    position: relative;
+    
+}
+
+.footer-line p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a img {
+    width: 20px;
+    height: 20px;
+    filter: invert(100%);  
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);  
+    filter: invert(75%) sepia(80%) saturate(500%) hue-rotate(20deg); 
+}
+
+
+
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <h1>MITHub</h1>
+    <div class="nav-links">
+   
+        <a href="home.html">Home</a>
+        <a href="http://127.0.0.1:5500/MIT_Hub2916/.git/product.html" target="_blank">Product</a>
+        <a href="http://127.0.0.1:5500/MIT_Hub2916/about.html">About</a>
+     
+      <a href="login.html">Login</a>
+      <a href="#profile"><i class="fa-regular fa-user"></i></a>
+    </div>
+  </nav>
+ <section>
+        <div id="main">
+          <div class="content">
+            <h1>Welcome to MIT Student Marketplace</h1>
+          </div>
+          <div class="ptag">
+            <p>Your one-stop shop for curated packages, exclusive discounts, and personalized recommendations. Supporting MIT students every step of the way <span>!</span></p>
+          </div>
+        </div>
+ </section>
+
+ <section>
+    <div id="discount">
+        <div>
+          <h1>Lowest Prices Best Quality Shopping</h1>
+          <div>
+             <div>
+                <img src="https://images.meesho.com/images/pow/freeDelivery_jamun.svg" alt="del">
+                <p>Free Delivery</p>
+             </div>
+             <div>
+                <img src="https://images.meesho.com/images/pow/cod_jamun.svg" alt="cdel">
+                <p>Cash on Delivery</p>
+             </div>
+             <div>
+                <img src="https://images.meesho.com/images/pow/easyReturns_jamun.svg" alt="eret">
+                <p>Easy Returns</p>
+             </div>
+             
+          </div>
+          <a href="signUp.html"><button >Create Account</button></a>
+        </div>
+        <div>
+          <img src="https://img.freepik.com/free-vector/student-discount-sale-banner_23-2150562184.jpg?t=st=1737201628~exp=1737205228~hmac=3fb383f73efdd5c2ddbb69e6afba02a407ece969d24411a562db73276009f27c&w=740" alt="stu">
+        </div>
+    </div>
+ </section>
+   <section>
+    <h1 class="styled-heading">Top Categories to choose from</h1>
+
+    <div id="fashion">
+                  
+                  <div>
+                    <div>
+                       <img src="https://leapscholar.com/blog/wp-content/uploads/2023/12/Students-in-us-1-1024x576.png" alt="clothing">
+                       <p>Clothes</p>
+                    </div>
+                    <div>
+                      <img src="https://i.ytimg.com/vi/YWFDaWHg0Eo/maxresdefault.jpg" alt="bag">
+                      <p>Uniforms</p>
+                    </div>
+                    <div>
+                      <img src="https://www.highereducationdigest.com/wp-content/uploads/2020/10/MIT-WPU-4.jpg" alt="lab">
+                      <p>Lab Clothes</p>
+                    </div>
+                    <div>
+                      <img src="https://www.shutterstock.com/image-photo/summer-sunny-lifestyle-fashion-portrait-260nw-289854047.jpg" alt="bag">
+                      <p>Styilsh Bags</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h1>Be Fashion Forward</h1>
+                    <div class="child">
+                        <div>
+                          <img src="https://i.pinimg.com/originals/7d/ca/f7/7dcaf760b232e86febb71c2d8c732d2b.jpg" alt="cloth">
+                          <p>Clothing</p>
+                        </div>
+                        <div>
+                           <img src="https://in.danielwellington.com/cdn/shop/collections/paulabiadacz_1_1_7f0fec07-5449-4332-8abd-aa8dd2bfadbc.jpg?v=1724745090" alt="watch">
+                           <p>Watches</p>
+                        </div>
+                        <div>
+                           <img src="https://redtape.com/cdn/shop/files/RSL0775_1.jpg?v=1719398666" alt="shoes">
+                           <p>Sneakers</p>
+                        </div>
+                        <div>
+                            <img src="https://www.jiomart.com/images/product/original/rvxrzbzksi/cimoni-classic-executive-men-s-leather-belt-semi-formal-pure-leather-belt-color-tan-brown-waist-upto-38-genuine-leather-belt-product-images-rvxrzbzksi-0-202208010436.jpg?im=Resize=(500,630)" alt="belt">
+                            <p>Lether Belts</p>
+                        </div>
+                    </div>
+                  </div>
+    </div>
+   </section>
+
+   <section>
+        <div class="items">
+          <div>
+            <h1>Essentials</h1>
+            <button>View All</button>
+          </div>
+           
+          <div class="item-child">
+            <div>
+                <div class="lightBlue">
+                  <div>
+                     <img src="https://images.meesho.com/images/products/351745347/i8xpp_512.webp" alt="kit">
+                  </div>
+                  <div>
+                     <img src="https://images.meesho.com/images/products/276082349/zs2mr_512.webp" alt="mix">
+                  </div>
+                 
+                </div>
+                <button>Kitchen Appliences</button>
+            </div>
+            <div>
+              <div class="lightBlue">
+                <div>
+                   <img src="https://th.bing.com/th/id/R.fc78630a2c20ae215010a5c2de771fde?rik=%2frrEsyrpX3xSrA&riu=http%3a%2f%2fwww.trbimg.com%2fimg-59412f46%2fturbine%2fsfl-free-beauty-baby-or-wellness-sample-kit-from-johnson-johnson-20170614&ehk=ZKuAuEfGy4hljdb347i%2flxQZsN3LplSwQriFlUM2GE8%3d&risl=&pid=ImgRaw&r=0" alt="kit">
+                </div>
+                <div>
+                   <img src="https://www.healthgennie.com/public/newsFeedFiles/Skincare.jpg" alt="mix">
+                </div>
+               
+              </div>
+              <button>Health Care</button>
+            </div>
+            <div>
+              <div class="lightBlue">
+                <div>
+                   <img src="https://cdn.fcglcdn.com/brainbees/images/products/583x720/10784280a.webp" alt="kit">
+                </div>
+                <div>
+                   <img src="https://cdn.fcglcdn.com/brainbees/images/products/583x720/19241436a.webp" alt="mix">
+                </div>
+               
+              </div>
+              <button>Books for You</button>
+            </div>
+          </div>
+        </div>
+        
+
+        <div id="item2" class="items">
+          <div>
+            <h1>New Styles</h1>
+            <button>View All</button>
+          </div>
+           
+          <div class="item-child">
+            <div>
+                <div class="lightBlue">
+                  <div>
+                     <img src="https://images.meesho.com/images/products/145093467/gk1tx_512.webp" alt="kit">
+                  </div>
+                  <div>
+                     <img src="https://rukminim2.flixcart.com/image/850/1000/krdtlzk0/sandal/p/i/g/5-bb0038black-37-b-b-ladies-footwear-black-original-imag56n4x7nhvday.jpeg?q=90&crop=falsebp" alt="mix">
+                  </div>
+                 
+                </div>
+                <button>Foot Wear</button>
+            </div>
+            <div>
+              <div class="lightBlue">
+                <div>
+                   <img src="https://i.ebayimg.com/images/g/7-gAAOSw5FRfHBXT/s-l1200.jpg" alt="kit">
+                </div>
+                <div>
+                   <img src="https://ounass-sa.atgcdn.ae/contentful/b3xlytuyfm3e/4CEnplsFhY1u2DXk4qP7gK/d4cb5fcd039105581fbf78bb0386a52c/Women_Accessories_APP_PLP_Banner_copy.jpg?q=70" alt="mix">
+                </div>
+               
+              </div>
+              <button>Accessories</button>
+            </div>
+            <div>
+              <div class="lightBlue">
+                <div>
+                   <img src="https://cdn.fcglcdn.com/brainbees/images/products/583x720/18276664a.webp" alt="kit">
+                </div>
+                <div>
+                   <img src="https://cdn.fcglcdn.com/brainbees/images/products/583x720/15500173a.webp" alt="mix">
+                </div>
+               
+              </div>
+              <button>Electronics</button>
+            </div>
+          </div>
+        </div>
+   </section>
+   <section>
+
+         <div class="blog">
+             <div>
+                  <h1>
+                    Save more with MITHub! Best deals & amazing discounts, download now!
+                  </h1>
+             </div>
+             <div>
+               <p>Happy Shopping</p>
+             </div>
+         </div>
+
+   </section>
+
+   <footer>
+    <div class="footer">
+      <div class="col-1">
+          <h4>About Us</h4>
+          <a href="">Contact Us</a>
+          <a href="">About Us</a>
+          <a href="https://news.mit.edu/">News</a>
+          <a href="https://www.mit.edu/about/">MIT Stories</a>
+          <a href="https://www.mit.edu/innovation/">Innovation</a>
+      </div>
+  
+      <div class="col-2">
+          <h4>Useful Links</h4>
+          <a href="">Blogs</a>
+          <a href="">Privacy</a>
+          <a href="">FAQs</a>
+          <a href="">Terms</a>
+      </div>
+  
+      <div class="col-3">
+          <h4>Categories</h4>
+          <a href="">Electronics</a>
+          <a href="">Furnitures</a>
+          <a href="">Headphones</a>
+          <a href="">Kitchen Articles</a>
+          <a href="">Groceries</a>
+          <a href="">Computer Accessories</a>
+      </div>
+  
+      
+  </div>
+  <div class="footer-line">
+      <p>&copy; 2025 Designed by R@ju</p>
+      <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Icon">
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram Icon">
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Icon">
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn Icon">
+          </a>
+          <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube Icon">
+          </a>
+      </div>
+   
+  </div>
+    
+  
+  
+   </footer>
+</body>
+</html>

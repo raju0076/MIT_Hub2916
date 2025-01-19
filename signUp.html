@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-Up Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .signup-container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+    <form id="signupForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+        <div id="nameError" class="error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="code">Std Code</label>
+        <input type="text" id="code" placeholder="Enter your student code" required>
+        <div id="codeError" class="error"></div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <div id="emailError" class="error"></div>
+      </div>
+
+    
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <div id="passwordError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter your password" required>
+        <div id="confirmPasswordError" class="error"></div>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+</body>
+</html>
+
+<script>
+  const form = document.getElementById('signupForm');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    document.getElementById('nameError').textContent = '';
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('passwordError').textContent = '';
+    document.getElementById('confirmPasswordError').textContent = '';
+
+    const name = document.getElementById('name').value.trim();
+    const code=document.getElementById('code').value;
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    let hasError = false;
+
+    if (!name) {
+      document.getElementById('nameError').textContent = 'Name is required';
+      hasError = true;
+    }
+    if (!code) {
+      document.getElementById('codeError').textContent = 'Student code is required';
+      hasError = true;
+    }
+
+    if (!email) {
+      document.getElementById('emailError').textContent = 'Email is required';
+      hasError = true;
+    }
+    if (!password) {
+      document.getElementById('passwordError').textContent = 'Password is required';
+      hasError = true;
+    } else if (password.length < 6) {
+      document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+      hasError = true;
+    }
+    if (confirmPassword !== password) {
+      document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+      hasError = true;
+      alert('Sign-up unsuccessful');
+    }
+
+    if (!hasError) {
+      alert('Sign-up successful!');
+    
+   
+
+
+    const userData = {
+    name,
+    email,
+    code,
+    password
+  };
+
+  const requestOptions={
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(userData),
+    redirect:"follow"
+  };
+
+  fetch('https://mithub-f6f9a-default-rtdb.firebaseio.com/users.json', requestOptions)
+  .then(response => {
+    if (response.ok) {
+      alert('Data saved successfully!');
+      form.reset(); // Reset form fields
+    } else {
+      alert('Failed to save data. Please try again.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while saving data.');
+  });
+
+  form.reset()
+
+}
+  });
+
+
+ 
+
+</script>
+
+
+
