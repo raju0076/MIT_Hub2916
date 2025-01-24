@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Picture Upload</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    .upload-container {
+      margin-top: 50px;
+      width: 20%;
+      height: 300px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      margin: auto;
+    }
+    img {
+      max-width: 100px;
+      border-radius: 50%;
+      margin: 10px auto;
+    }
+    #preview {
+      width: 100px;
+      height: 100px;
+    }
+    form {
+      display: inline-flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      line-height: 5px;
+    }
+    button {
+      width: 30%;
+      border-radius: 5px;
+      border: 0px;
+      padding: 5px;
+      background-color: green;
+      text-align: center;
+      margin: auto;
+    }
+    input {
+      padding: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload Your Profile Picture</h1>
+  <div class="upload-container">
+    <img id="preview" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1I68ez8hB_p2JkpHVmvlTpTfEo6egQ74_70fzUurAOUrv53MPfkWTbJLsYFgG1jAkxiY&usqp=CAU" alt="Profile Preview">
+    <form id="profileForm">
+      <input type="file" id="fileInput" accept="image/*" ><br><br>
+      <input type="text" id="name" placeholder="Enter Your Name"><br><br>
+      <input type="text" id="username" placeholder="Enter Your Username"><br><br>
+      <input type="text" id="bio" placeholder="Bio"><br><br>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("profileForm");
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+
+    // Preview image on file input change
+    fileInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Handle form submission
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();  // Prevent default form submission behavior
+
+      const name = document.getElementById("name").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const bio = document.getElementById("bio").value;
+      const file = fileInput.files[0];
+       console.log(file)
+      // Check if file is selected
+      if (!file) {
+        alert('Please select a profile picture!');
+        return;
+      }
+
+      // Create FormData object to send image and other data
+      const formData = {
+        file,
+        name,
+        username,
+        bio
+      }
+
+      // Send data via fetch
+      const requestOptions = {
+  method: "POST",
+  redirect: "follow"
+};
+
+fetch("https://mithub-f6f9a-default-rtdb.firebaseio.com/profile.json", requestOptions)
+  .then((response) => response.json())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+
+      // Reset the form after submission
+      form.reset();
+      preview.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1I68ez8hB_p2JkpHVmvlTpTfEo6egQ74_70fzUurAOUrv53MPfkWTbJLsYFgG1jAkxiY&usqp=CAU"; // Reset to default image
+    });
+  </script>
+</body>
+</html>
